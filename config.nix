@@ -1,6 +1,6 @@
 {
   packageOverrides = pkgs: with pkgs; {
-    nvim-enviornment = pkgs.buildEnv {
+    nvim-environment = pkgs.buildEnv {
       name = "nvim-tools";
       paths = [
         bash-completion
