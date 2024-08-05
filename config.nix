@@ -9,6 +9,7 @@
         ripgrep
         fzf
         lazygit
+        awscli2
       ];
     };
   };
