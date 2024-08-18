@@ -6,12 +6,8 @@ return {
       -- add your options that should be passed to the setup() function here
       style = "warmer",
     },
-  },
-  {
-    -- change the default color scheme to new loaded scheme
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "onedark",
-    },
+    config = function()
+      vim.cmd [[colorscheme onedark]]
+    end
   },
 }
