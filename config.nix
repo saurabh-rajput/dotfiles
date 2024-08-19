@@ -10,6 +10,8 @@
         fzf
         lazygit
         awscli2
+        nodejs_20
+        protobuf_26
       ];
     };
   };
