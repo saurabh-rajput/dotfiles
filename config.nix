@@ -25,6 +25,8 @@
         (ruby.withPackages (ps: with ps; [ neovim ]))
         (python312.withPackages (ps: with ps; [ pip ]))
         pipx
+        # Language Servers
+        clang-tools
       ];
     };
   };
