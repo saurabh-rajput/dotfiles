@@ -4,7 +4,6 @@
       name = "nvim-tools";
       paths = [
         # System Tools
-        gcc
         unzip
         # Tools
         bash-completion
@@ -17,13 +16,10 @@
         lazygit
         awscli2
         # Runtime
-        rustc
-        cargo
         nodejs_20
         # Python Runtime
         (ruby.withPackages (ps: with ps; [ neovim ]))
         (python312.withPackages (ps: with ps; [ pip ]))
-        pipx
       ];
     };
   };
