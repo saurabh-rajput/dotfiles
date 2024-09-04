@@ -5,6 +5,7 @@
       paths = [
         # System Tools
         unzip
+        xclip
         # Tools
         bash-completion
         neovim
