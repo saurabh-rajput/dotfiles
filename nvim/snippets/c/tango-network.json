@@ -1,0 +1,7 @@
+{
+  "blog": {
+    "prefix": "blog",
+    "body": ["blog(${1:LOG_INFO},\"module=${2:module} msg=\"${3:message}\" ${4}\"${5});"],
+    "description": "blog for tango-network project"
+  },
+}
