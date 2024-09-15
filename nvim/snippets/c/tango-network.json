@@ -1,7 +1,17 @@
 {
   "blog": {
-    "prefix": "blog",
-    "body": ["blog(${1:LOG_INFO},\"module=${2:module} msg=\"${3:message}\" ${4}\"${5});"],
+    "prefix": "bblog",
+    "body": ["blog(${1:LOG_INFO},\"module=${2:module} msg=\\\"${3:message}\\\" ${4}\"${5});"],
     "description": "blog for tango-network project"
   },
+  "logfmt": {
+    "prefix": "logfmt",
+    "body": ["printf(\"level=${1:info} id=${2:id} tag=${3:tag} module=${4:module} msg=\\\"${5:message}\\\" ${6}\n\"${7});"]
+    "description": "blog for tango-network project"
+  },
+  "logfmt": {
+    "prefix": "print",
+    "body": ["printf(\"level=${1:info} module=${2:module} msg=\\\"${3:message}\\\" ${4}\n\"${5});"],
+    "description": "blog for tango-network project"
+  }
 }
