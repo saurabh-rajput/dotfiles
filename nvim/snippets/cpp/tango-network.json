@@ -16,7 +16,7 @@
     "print": {
         "prefix": "print",
         "body": [
-            "printf(\"level=${1:info} module=${2:module} msg=\\\"${3:message}\\\" ${4}\n\"${5});"
+            "printf(\"level=${1:info} module=${2:module} msg=\\\"${3:message}\\\" ${4}\\n\"${5});"
         ],
         "description": "blog for tango-network project"
     }
