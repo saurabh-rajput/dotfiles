@@ -6,9 +6,6 @@ return {
       clangd = {
         mason = false,
       },
-      mesonlsp = {
-        mason = false,
-      },
     },
   },
 }
