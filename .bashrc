@@ -28,7 +28,6 @@ export HISTCONTROL=ignorespace
 
 # ~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 # ~~~~~~~~~~~~~~~ SSH ~~~~~~~~~~~~~~~~~~~~~~~~
 # SSH Script from arch wiki
 # if ! pgrep -u "$USER" ssh-agent >/dev/null; then
@@ -40,19 +39,15 @@ export HISTCONTROL=ignorespace
 
 # Only run on Ubuntu
 
-if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; then
-	eval "$(ssh-agent -s)" >/dev/null
-	eval "$(fzf --bash)"
-fi
-
+# if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; then
+# 	eval "$(ssh-agent -s)" >/dev/null
+# 	eval "$(fzf --bash)"
+# fi
 
 # git
 alias gp='git pull'
 alias gs='git status'
 alias lg='lazygit'
-
-# completions
-source <(devpod completion bash)
 
 # fzf aliases
 # use fp to do a fzf search and preview the files
@@ -61,15 +56,15 @@ alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 alias vf='nvim $(fp)'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	source "$HOME/.fzf.bash"
-	# echo "I'm on Mac!"
+  source "$HOME/.fzf.bash"
+  # echo "I'm on Mac!"
 
-	# brew bash completion
-	[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+  # brew bash completion
+  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 else
-	#	source /usr/share/fzf/key-bindings.bash
-	#	source /usr/share/fzf/completion.bash
-	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+  #	source /usr/share/fzf/key-bindings.bash
+  #	source /usr/share/fzf/completion.bash
+  [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
 
 # Only needed for npm install on WSL
