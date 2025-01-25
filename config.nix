@@ -17,6 +17,7 @@
         fzf
         lazygit
         awscli2
+        direnv
         # Runtime
         rustc
         cargo
