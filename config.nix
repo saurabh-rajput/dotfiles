@@ -6,6 +6,7 @@
         # System Tools
         unzip
         xclip
+        coreutils
         # Tools
         bash-completion
         neovim
