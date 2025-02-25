@@ -24,7 +24,7 @@ nix-channel --update
 
 # install Nix packages from config.nix
 # nix-env -iA nixpkgs.nvim-environment
-nix profile install --file '<nixpkgs>' nvim-environment
+nix profile install github:vishwassharma/dotfiles-devpod
 
 # tmux
 # mkdir ~/.config/tmux/plugins &&
