@@ -23,7 +23,8 @@ nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 nix-channel --update
 
 # install Nix packages from config.nix
-nix-env -iA nixpkgs.nvim-environment
+# nix-env -iA nixpkgs.nvim-environment
+nix profile install --file '<nixpkgs>' nvim-environment
 
 # tmux
 # mkdir ~/.config/tmux/plugins &&
