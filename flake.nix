@@ -9,21 +9,25 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      # Home Manager
       mkHm = {
         extraModules ? [],
         arch,
       }:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {  system = arch; };
-          modules = extraModules;
+          pkgs = nixpkgs.legacyPackages.${arch};
+          modules =
+            [
+              # {
+              #   home.packages = [rummage.packages.${arch}.default];
+              # }
+            ]
+            ++ extraModules;
         };
     in {
-
       homeConfigurations = {
-        "vishwas@dhanush" = mkHm {
-          extraModules = [ ./nix/home/personal.nix ];
-          arch = "aarch64-darwin";
+        "vishwas" = mkHm {
+            extraModules = [ ./nix/home.nix ];
+            arch = "aarch64-darwin";
         };
       };
     };
