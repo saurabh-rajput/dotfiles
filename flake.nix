@@ -7,9 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, lix-module, ... }@inputs:
     let
       # Darwin
       mkDarwin = {extraDarwinModules ? {}}:
@@ -18,7 +22,7 @@
           specialArgs = {inherit self;};
           modules =
             [
-              # lix-module.nixosModules.default
+              lix-module.nixosModules.default
               ./nix/darwin.nix
             ]
             ++ extraDarwinModules;
