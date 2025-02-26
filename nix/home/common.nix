@@ -32,14 +32,14 @@
     mouse = true;
     prefix = "C-a";
     baseIndex = 1;
-    terminal = "xterm-ghostty";
+    # terminal = "xterm-ghostty";
     shell = "${pkgs.zsh}/bin/zsh";
     extraConfig = ''
       bind-key - split-window -v -c '#{pane_current_path}'
       bind-key \\ split-window -h -c '#{pane_current_path}'
 
       set -a terminal-features '*:usstyle'
-      set -as terminal-features ',xterm-ghostty:clipboard'
+      # set -as terminal-features ',xterm-ghostty:clipboard'
       set -g allow-passthrough on
       set -s set-clipboard on
       set -g set-titles on
@@ -304,18 +304,18 @@
   #   enable = false;
   # };
 
-  programs.ghostty = {
-    enable = true;
-    package = null;
-    installBatSyntax = false;
-    settings = {
-      shell-integration-features = "no-cursor";
-      font-family = "UbuntuMono Nerd Font Mono";
-      font-thicken = false;
-
-      cursor-style-blink = false;
-    };
-  };
+  # programs.ghostty = {
+  #   enable = true;
+  #   package = null;
+  #   installBatSyntax = false;
+  #   settings = {
+  #     shell-integration-features = "no-cursor";
+  #     font-family = "UbuntuMono Nerd Font Mono";
+  #     font-thicken = false;
+  #
+  #     cursor-style-blink = false;
+  #   };
+  # };
 
   programs.lazygit = {
     enable = true;
