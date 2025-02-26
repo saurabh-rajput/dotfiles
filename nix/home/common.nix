@@ -90,127 +90,87 @@
   #   forwardAgent = true;
   # };
 
-  # programs.git = {
-  #   enable = true;
-  #   userName = "Mitchell Hanberg";
-  #   userEmail = "mitch@mitchellhanberg.com";
-  #   # signing = {
-  #   #   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDckxDud0PGdGd60v/1SUa0pbWWe46FcVIbuTijwzeZR";
-  #   # };
-  #   delta = {
-  #     enable = true;
-  #   };
-  #   includes = [
-  #     {path = "~/.gitconfig.local";}
-  #   ];
-  #
-  #   extraConfig = {
-  #     push.default = "simple";
-  #     color.branch = "auto";
-  #     core = {
-  #       excludesFile = "~/.gitignore_global";
-  #       editor = "nvim";
-  #     };
-  #     pull.ff = "only";
-  #     init.defaultBranch = "main";
-  #     gpg.format = "ssh";
-  #     gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-  #     commit.gpgSign = true;
-  #     rebase.updateRefs = true;
-  #   };
-  # };
+  programs.git = {
+    enable = true;
+    userName = "Vishwas Sharma";
+    userEmail = "vishwasinventor@gmail.com";
+    # signing = {
+    #   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDckxDud0PGdGd60v/1SUa0pbWWe46FcVIbuTijwzeZR";
+    # };
+    delta = {
+      enable = true;
+    };
+    # includes = [
+    #   {path = "~/.gitconfig.local";}
+    # ];
+
+    extraConfig = {
+      # push.default = "simple";
+      # color.branch = "auto";
+      # core = {
+      #   excludesFile = "~/.gitignore_global";
+      #   editor = "nvim";
+      # };
+      # pull.ff = "only";
+      init.defaultBranch = "master";
+      # gpg.format = "ssh";
+      # gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+      # commit.gpgSign = true;
+      # rebase.updateRefs = true;
+    };
+  };
 
   # programs.btop.enable = true;
   # programs.btop.settings.color_theme = "tokyo-night";
   # programs.btop.settings.theme_background = true;
 
-  # programs.zsh = {
-  #   enable = true;
-  #   autocd = true;
-  #   enableVteIntegration = true;
-  #   autosuggestion.enable = true;
-  #   syntaxHighlighting.enable = true;
-  #   plugins = [
-  #     {
-  #       name = "ohmyzsh-key-bindings";
-  #       src = pkgs.fetchFromGitHub {
-  #         owner = "kytta";
-  #         repo = "ohmyzsh-key-bindings";
-  #         rev = "main";
-  #         sha256 = "sha256-BXIYzHxmHHThMko+f87HL0/Vak53Mfdr/4VCrll8OiM=";
-  #       };
-  #     }
-  #   ];
-  #   sessionVariables = {
-  #     EDITOR = "nvim";
-  #     ERL_AFLAGS = "-kernel shell_history enabled";
-  #     KERL_BUILD_DOCS = "yes";
-  #     CLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/";
-  #     ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
-  #   };
-  #
-  #   shellAliases = {
-  #     tsr = "tailscale serve reset";
-  #
-  #     dev = "tmux-open-project";
-  #
-  #     nublar = "ssh -q mitchell@nublar -L 4999:localhost:4999 -L 8000:localhost:8000";
-  #     tmux = "direnv exec / tmux";
-  #     blog = "cd ~/Development/blog";
-  #     em = "mix ecto.migrate";
-  #     git-trigger-build = "git commit --allow-empty -m 'Trigger Build'";
-  #     gpu = "git push -u origin";
-  #     gd = "git diff";
-  #     gwip = "git add . && git commit -m 'WIP'";
-  #     gtb = "git-trigger-build";
-  #     tree = "tree | less";
-  #     unwrap-last-commit = "git reset HEAD~1";
-  #     mxi = "mix";
-  #     shfmt = "shfmt -i 2";
-  #     ls = "eza";
-  #
-  #     dadbod = "nvim -c ':DBUI'";
-  #
-  #     # docker
-  #     dc = "docker-compose";
-  #     docker-image-remove = "docker image rm $(docker image ls -q) --force";
-  #
-  #     # gh aliases
-  #     ghc = "gh repo clone";
-  #     ghv = "gh repo view -w";
-  #
-  #     # elixir
-  #     mtc = "WALLABY_DRIVER=chrome mix test";
-  #     mts = "WALLABY_DRIVER=selenium mix test";
-  #
-  #     # tmux
-  #     tp = "tmux-switch-clients";
-  #
-  #     # zk
-  #     notes = "zk edit --match=README --tag=startup";
-  #   };
-  #
-  #   initExtra = ''
-  #     export EDITOR=nvim
-  #
-  #     if uname -a | grep -i "darwin" > /dev/null; then
-  #       eval $(/opt/homebrew/bin/brew shellenv)
-  #     fi
-  #
-  #     path() {
-  #       echo $PATH | tr ':' '\n'
-  #     }
-  #
-  #     # aliases that use env vars or spaces
-  #     alias icloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
-  #     alias home="cd $HOME"
-  #     alias rebuild-blog="curl -X POST -d {} https://api.netlify.com/build_hooks/$NETLIFY_BLOG_ID"
-  #     export PATH="$HOME/.bin:$PATH"
-  #     # export PATH="$HOME/.local/bin:$PATH"
-  #
-  #     export PATH="$HOME/.bin:$PATH"
-  #   '';
-  # };
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    enableVteIntegration = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    plugins = [
+      {
+        name = "ohmyzsh-key-bindings";
+        src = pkgs.fetchFromGitHub {
+          owner = "kytta";
+          repo = "ohmyzsh-key-bindings";
+          rev = "main";
+          sha256 = "sha256-BXIYzHxmHHThMko+f87HL0/Vak53Mfdr/4VCrll8OiM=";
+        };
+      }
+    ];
+    sessionVariables = {
+      EDITOR = "nvim";
+      # ERL_AFLAGS = "-kernel shell_history enabled";
+      # KERL_BUILD_DOCS = "yes";
+      # CLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/";
+      # ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
+    };
+
+    shellAliases = {
+      dev = "tmux new -A main";
+    };
+
+    initExtra = ''
+      export EDITOR=nvim
+
+      if uname -a | grep -i "darwin" > /dev/null; then
+        eval $(/opt/homebrew/bin/brew shellenv)
+      fi
+
+      path() {
+        echo $PATH | tr ':' '\n'
+      }
+
+      # aliases that use env vars or spaces
+      alias icloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+      alias home="cd $HOME"
+      export PATH="$HOME/.bin:$PATH"
+      # export PATH="$HOME/.local/bin:$PATH"
+    '';
+  };
 
   # programs.bat.enable = true;
   # programs.bat.themes = {
@@ -225,15 +185,15 @@
   #   };
   # };
 
-  # programs.fzf = {
-  #   enable = true;
-  #   defaultCommand = "rg --files --hidden --glob '!.git/'";
-  # };
-  # programs.direnv = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  #   nix-direnv.enable = true;
-  # };
+  programs.fzf = {
+    enable = true;
+    defaultCommand = "rg --files --hidden --glob '!.git/'";
+  };
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   # programs.starship = {
   #   enable = true;
@@ -357,33 +317,33 @@
   #   };
   # };
 
-  # programs.lazygit = {
-  #   enable = true;
-  #   settings = {
-  #     git = {
-  #       paging = {
-  #         colorArg = "always";
-  #         pager = "delta --paging=never";
-  #         useConfig = false;
-  #       };
-  #       commit = {
-  #         signOff = false;
-  #         verbose = "default";
-  #       };
-  #       branchLogCmd = "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --";
-  #       allBranchesLogCmd = "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium";
-  #       overrideGpg = false;
-  #       disableForcePushing = false;
-  #       confirmOnQuit = false;
-  #       os = {
-  #         open = "open -- {{filename}}";
-  #         openLink = "open {{link}}";
-  #       };
-  #       disableStartupPopups = false;
-  #       notARepository = "prompt";
-  #     };
-  #   };
-  # };
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      git = {
+        paging = {
+          colorArg = "always";
+          pager = "delta --paging=never";
+          useConfig = false;
+        };
+        commit = {
+          signOff = false;
+          verbose = "default";
+        };
+        branchLogCmd = "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --";
+        allBranchesLogCmd = "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium";
+        overrideGpg = false;
+        disableForcePushing = false;
+        confirmOnQuit = false;
+        os = {
+          open = "open -- {{filename}}";
+          openLink = "open {{link}}";
+        };
+        disableStartupPopups = false;
+        notARepository = "prompt";
+      };
+    };
+  };
 
   programs.home-manager.enable = true;
 }
