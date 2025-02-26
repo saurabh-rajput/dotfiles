@@ -25,5 +25,5 @@ in {
     ]
     ++ commonCasks;
   homebrew.brews = import ./brews.nix;
-  nix.settings.trusted-users = ["mitchell" "m.hanberg"];
+  nix.settings.trusted-users = ["vishwas" "ubuntu"];
 }
