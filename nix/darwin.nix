@@ -13,8 +13,23 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
   # Linux builders
-  nix.linux-builder.enable = true;
+  nix.linux-builder = { 
+    enable = true; 
+    ephemeral = true;
+    maxJobs = 4;
+    config = {
+      virtualisation = {
+        darwin-builder = {
+          diskSize = 40 * 1024;
+          memorySize = 8 * 1024;
+        };
+      };
+      cores = 6;
+    };
+  };
   nix.settings.trusted-users = [ "@admin" ];
+
+  # nix.distributedBuilds = true;
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -25,7 +40,7 @@
 
 
   # Unlocking sudo via fingerprint
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
   
   # Finder shows all file extensions
   system.defaults.finder.AppleShowAllExtensions = true;

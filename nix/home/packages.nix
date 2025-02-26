@@ -35,7 +35,7 @@
       nodejs
       # Python Runtime
       (ruby.withPackages (ps: with ps; [ neovim ]))
-      (python312.withPackages (ps: with ps; [ pip ]))
+      (python312.withPackages (ps: with ps; [ pip pyelftools ]))
     ]
     ++ (
       if pkgs.stdenv.isLinux
