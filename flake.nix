@@ -64,7 +64,7 @@
       };
 
       darwinConfigurations = {
-        dhanush = mkDarwin {
+        "dhanush" = mkDarwin {
           extraDarwinModules = [./nix/darwin/personal.nix];
         };
       };
