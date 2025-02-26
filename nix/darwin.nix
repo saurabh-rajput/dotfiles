@@ -45,7 +45,7 @@
     "homebrew/services"
   ];
 
-  nix.extraOptions = [ "x86_64-darwin" "aarch64-darwin" ]
+  # nix.extraOptions = [ "x86_64-darwin" "aarch64-darwin" ];
 
   # homebrew.masApps = {
   #   Magnet = 441258766;
