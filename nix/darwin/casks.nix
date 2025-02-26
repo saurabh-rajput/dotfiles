@@ -3,5 +3,5 @@
   "font-ubuntu-nerd-font"
   "font-ubuntu-sans-nerd-font"
   "secretive"
-  "chromedriver"
+  # "chromedriver"
 ]

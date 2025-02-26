@@ -3,8 +3,10 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [];
 
+  ids.gids.nixbld = 350;
+
   # Auto upgrade nix package and the daemon service.
-  # services.nix-daemon.enable = true;
+  services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
@@ -31,17 +33,17 @@
     "homebrew/services"
   ];
 
-  homebrew.masApps = {
-    Magnet = 441258766;
-    Dato = 1470584107;
-    Reeder = 1529448980;
-    Blackout = 1319884285;
-    Shareful = 1522267256;
-    Actions = 1586435171;
-    MenuBarStats = 714196447;
-    Things = 904280696;
-    Keynote = 409183694;
-  };
+  # homebrew.masApps = {
+  #   Magnet = 441258766;
+  #   Dato = 1470584107;
+  #   Reeder = 1529448980;
+  #   Blackout = 1319884285;
+  #   Shareful = 1522267256;
+  #   Actions = 1586435171;
+  #   MenuBarStats = 714196447;
+  #   Things = 904280696;
+  #   Keynote = 409183694;
+  # };
 
   nixpkgs.config.allowUnfree = true;
   # The platform the configuration will be used on.

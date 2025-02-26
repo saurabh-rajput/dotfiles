@@ -45,6 +45,24 @@
             ++ extraModules;
         };
     in {
+
+      apps."aarch64-darwin".default = let
+        pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+        init = pkgs.writeShellApplication {
+          name = "init";
+          runtimeInputs = with pkgs; [git curl bash];
+          text = ''
+            git clone https://github.com/mhanberg/.dotfiles ~/.dotfiles
+            bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            nix run nix-darwin -- switch --flake ~/.dotfiles
+            nix run home-manager/master -- switch --flake ~/.dotfiles
+          '';
+        };
+      in {
+        type = "app";
+        program = "${init}/bin/init";
+      };
+
       darwinConfigurations = {
         dhanush = mkDarwin {
           extraDarwinModules = [./nix/darwin/personal.nix];

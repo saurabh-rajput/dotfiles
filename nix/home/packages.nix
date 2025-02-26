@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   packages = with pkgs;
     [
-      chromedriver
+      # chromedriver
       gawk
       gh
       git
