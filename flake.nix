@@ -33,9 +33,9 @@
           pkgs = nixpkgs.legacyPackages.${arch};
           modules =
             [
-              {
-                home.packages = [rummage.packages.${arch}.default];
-              }
+              # {
+              #   home.packages = [rummage.packages.${arch}.default];
+              # }
             ]
             ++ extraModules;
         };
@@ -78,7 +78,12 @@
         };
       };
 
-
+      homeConfigurations = {
+        "vishwas@dhanush" = mkHm {
+          extraModules = [./nix/home/personal.nix];
+          arch = "aarch64-darwin";
+        };
+      };
     };
     # Flake Utils Start 
     # flake-utils.lib.eachDefaultSystem (system:
