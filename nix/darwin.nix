@@ -5,20 +5,32 @@
 
   ids.gids.nixbld = 350;
 
+
   # Auto upgrade nix package and the daemon service.
   # services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
+  # Linux builders
+  nix.linux-builder.enable = true;
+  nix.settings.trusted-users = [ "@admin" ];
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
-  system.stateVersion = 4;
+  system.stateVersion = 6;
 
+
+  # Unlocking sudo via fingerprint
+  security.pam.enableSudoTouchIdAuth = true;
+  
+  # Finder shows all file extensions
+  system.defaults.finder.AppleShowAllExtensions = true;
+  # Default Finder folder view is the columns view
+  system.defaults.finder.FXPreferredViewStyle = "clmv";
   # system.defaults.NSGlobalDomain.KeyRepeat = 2;
   # system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
   # system.defaults.dock.autohide = true;
@@ -32,6 +44,8 @@
   homebrew.taps = [
     "homebrew/services"
   ];
+
+  nix.extraOptions = [ "x86_64-darwin" "aarch64-darwin" ]
 
   # homebrew.masApps = {
   #   Magnet = 441258766;

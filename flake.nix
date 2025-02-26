@@ -52,11 +52,16 @@
           name = "init";
           runtimeInputs = with pkgs; [git curl bash];
           text = ''
+            # Apple Silicon Macs can install Rosetta, which enables the system to run binaries for Intel CPUs transparently
+            softwareupdate --install-rosetta --agree-to-license
+
             git clone git@github.com:vishwassharma/dotfiles.git ~/.dotfiles
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
             # nix run nix-darwin -- switch --flake ~/.dotfiles
             nix run nix-darwin/master#darwin-rebuild -- switch --flake ~/.dotfiles
             nix run home-manager/master -- switch --flake ~/.dotfiles
+            # 
+            # nix run nixpkgs#darwin.linux-builder
           '';
         };
       in {
@@ -65,13 +70,17 @@
       };
 
       darwinConfigurations = {
-        "dhanush" = mkDarwin {
+        "macbook" = mkDarwin {
           extraDarwinModules = [./nix/darwin/personal.nix];
         };
       };
 
       homeConfigurations = {
-        "vishwas@dhanush" = mkHm {
+        "vishwas" = mkHm {
+            extraModules = [ ./nix/home/personal.nix ];
+            arch = "aarch64-darwin";
+        };
+        "vishwas@macbook" = mkHm {
             extraModules = [ ./nix/home/personal.nix ];
             arch = "aarch64-darwin";
         };
