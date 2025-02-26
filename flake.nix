@@ -54,7 +54,8 @@
           text = ''
             git clone git@github.com:vishwassharma/dotfiles.git ~/.dotfiles
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-            nix run nix-darwin -- switch --flake ~/.dotfiles
+            # nix run nix-darwin -- switch --flake ~/.dotfiles
+            nix run nix-darwin/master#darwin-rebuild -- switch --flake ~/.dotfiles
             nix run home-manager/master -- switch --flake ~/.dotfiles
           '';
         };
