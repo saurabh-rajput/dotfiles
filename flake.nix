@@ -26,7 +26,7 @@
     in {
       homeConfigurations = {
         "vishwas" = mkHm {
-            extraModules = [ ./nix/home.nix ];
+            extraModules = [ ./nix/home/personal.nix ];
             arch = "aarch64-darwin";
         };
       };
