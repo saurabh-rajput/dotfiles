@@ -1,31 +1,41 @@
 {pkgs, ...}: let
   packages = with pkgs;
     [
-      alejandra
-      autoconf
-      autogen
-      automake
-      awscli2
       chromedriver
-      cmake
-      direnv
-      fzf
       gawk
       gh
       git
       jq
       just
-      lazygit
-      neovim
-      neovim-remote
       nix-direnv
-      bash-language-server
-      ripgrep
       silver-searcher
-      tmux
       tree-sitter
       vim
       zsh
+
+      # System Tools
+      unzip
+      xclip
+      # Tools
+      bash-completion
+      bash-language-server
+      neovim
+      neovim-remote
+      tmux
+      curl
+      fd
+      ripgrep
+      fzf
+      lazygit
+      awscli2
+      direnv
+      # Runtime
+      rustc
+      cargo
+      nodejs
+      # Python Runtime
+      (ruby.withPackages (ps: with ps; [ neovim ]))
+      (python312.withPackages (ps: with ps; [ pip ]))
     ]
     ++ (
       if pkgs.stdenv.isLinux
