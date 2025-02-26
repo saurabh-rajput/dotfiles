@@ -39,8 +39,8 @@
     ]
     ++ (
       if pkgs.stdenv.isLinux
-      then [gcc coreutils xclip unixtools.ifconfig inotify-tools ncurses5]
-      else []
+      then [gcc coreutils xclip unixtools.ifconfig inotify-tools ncurses5 bintools]
+      else [ llvmPackages.bintools ]
     );
 in {
   inherit packages;
