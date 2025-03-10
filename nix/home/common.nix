@@ -32,7 +32,7 @@
     mouse = true;
     prefix = "C-a";
     baseIndex = 1;
-    # terminal = "xterm-ghostty";
+    terminal = "xterm-ghostty";
     shell = "${pkgs.zsh}/bin/zsh";
     extraConfig = ''
       bind-key - split-window -v -c '#{pane_current_path}'
@@ -94,22 +94,32 @@
     enable = true;
     userName = "Vishwas Sharma";
     userEmail = "vishwasinventor@gmail.com";
+    aliases = {
+      co = "checkout";
+    };
     # signing = {
     #   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDckxDud0PGdGd60v/1SUa0pbWWe46FcVIbuTijwzeZR";
     # };
-    delta = {
-      enable = true;
-    };
+    # delta = {
+    #   enable = true;
+    # };
     # includes = [
     #   {path = "~/.gitconfig.local";}
     # ];
 
     extraConfig = {
-      # push.default = "simple";
-      # color.branch = "auto";
-      # core = {
-      #   excludesFile = "~/.gitignore_global";
-      #   editor = "nvim";
+      push = {
+        autoSetupRemote = true;
+        followTags = true;
+      };
+      color.branch = "auto";
+      core = {
+        excludesFile = "~/.gitignore_global";
+        editor = "nvim";
+        # pager = "cat";
+      };
+      # pager = {
+      #   diff = false;
       # };
       # pull.ff = "only";
       init.defaultBranch = "master";
@@ -143,15 +153,15 @@
     ];
     sessionVariables = {
       EDITOR = "nvim";
-      # ERL_AFLAGS = "-kernel shell_history enabled";
-      # KERL_BUILD_DOCS = "yes";
-      # CLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/";
-      # ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
+      ERL_AFLAGS = "-kernel shell_history enabled";
+      KERL_BUILD_DOCS = "yes";
+      CLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/";
+      ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
     };
 
-    # shellAliases = {
-    #   dev = "tmux new -A main";
-    # };
+    shellAliases = {
+      dev = "tmux new -A main";
+    };
 
     initExtra = ''
       export EDITOR=nvim
@@ -193,127 +203,309 @@
     nix-direnv.enable = true;
   };
 
-  # programs.starship = {
-  #   enable = true;
-  #   settings = {
-  #     format = ''
-  #       [┌](bold white) $time
-  #       [│](bold white)$all'';
-  #     command_timeout = 1000;
-  #     character = {
-  #       format = "[└ ](bold white)$symbol ";
-  #       success_symbol = "[](bold yellow)";
-  #       error_symbol = "[](bold red)";
-  #     };
-  #     cmd_duration = {
-  #       min_time = 5000;
-  #       format = "took [$duration](bold yellow)";
-  #     };
-  #     git_metrics = {
-  #       disabled = false;
-  #     };
-  #     time = {
-  #       disabled = false;
-  #       use_12hr = true;
-  #       format = "[$time](bold yellow)";
-  #     };
-  #     aws = {
-  #       symbol = "  ";
-  #     };
-  #     conda = {
-  #       symbol = " ";
-  #     };
-  #     dart = {
-  #       symbol = " ";
-  #     };
-  #     directory = {
-  #       read_only = " ";
-  #       style = "bold blue";
-  #       substitutions = {
-  #         "/Library/Mobile Documents/com~apple~CloudDocs" = "/iCloud";
-  #       };
-  #     };
-  #     docker_context = {
-  #       disabled = true;
-  #       symbol = " ";
-  #     };
-  #     elixir = {
-  #       symbol = " ";
-  #     };
-  #     elm = {
-  #       symbol = " ";
-  #     };
-  #     git_branch = {
-  #       symbol = " ";
-  #     };
-  #     golang = {
-  #       symbol = " ";
-  #     };
-  #     hg_branch = {
-  #       symbol = " ";
-  #     };
-  #     java = {
-  #       symbol = " ";
-  #     };
-  #     julia = {
-  #       symbol = " ";
-  #     };
-  #     memory_usage = {
-  #       symbol = " ";
-  #     };
-  #     nim = {
-  #       symbol = " ";
-  #     };
-  #     nix_shell = {
-  #       symbol = " ";
-  #     };
-  #     package = {
-  #       symbol = " ";
-  #       disabled = true;
-  #     };
-  #     perl = {
-  #       symbol = " ";
-  #     };
-  #     php = {
-  #       symbol = " ";
-  #     };
-  #     python = {
-  #       symbol = " ";
-  #     };
-  #     ruby = {
-  #       symbol = " ";
-  #     };
-  #     rust = {
-  #       symbol = "󱘗 ";
-  #     };
-  #     scala = {
-  #       symbol = " ";
-  #     };
-  #     shlvl = {
-  #       symbol = " ";
-  #     };
-  #     swift = {
-  #       symbol = "󰛥 ";
-  #     };
-  #   };
-  # };
+  programs.starship = {
+    enable = true;
+    settings = {
+      aws = {
+        symbol = "  ";
+      };
+      buf = {
+        symbol = " ";
+      };
+      c = {
+        symbol = " ";
+      };
+      cmake = {
+        symbol = " ";
+      };
+      conda = {
+        symbol = " ";
+      };
+      crystal = {
+        symbol = " ";
+      };
+      dart = {
+        symbol = " ";
+      };
+      directory = {
+        read_only = " 󰌾";
+      };
+      docker_context = {
+        symbol = " ";
+      };
+      elixir = {
+        symbol = " ";
+      };
+      elm = {
+        symbol = " ";
+      };
+      fennel = {
+        symbol = " ";
+      };
+      fossil_branch = {
+        symbol = " ";
+      };
+      git_branch = {
+        symbol = " ";
+      };
+      git_commit = {
+        tag_symbol = "  ";
+      };
+      golang = {
+        symbol = " ";
+      };
+      guix_shell = {
+        symbol = " ";
+      };
+      haskell = {
+        symbol = " ";
+      };
+      haxe = {
+        symbol = " ";
+      };
+      hg_branch = {
+        symbol = " ";
+      };
+      hostname = {
+        ssh_symbol = " ";
+      };
+      java = {
+        symbol = " ";
+      };
+      julia = {
+        symbol = " ";
+      };
+      kotlin = {
+        symbol = " ";
+      };
+      lua = {
+        symbol = " ";
+      };
+      memory_usage = {
+        symbol = "󰍛 ";
+      };
+      meson = {
+        symbol = "󰔷 ";
+      };
+      nim = {
+        symbol = "󰆥 ";
+      };
+      nix_shell = {
+        symbol = " ";
+      };
+      nodejs = {
+        symbol = " ";
+      };
+      ocaml = {
+        symbol = " ";
+      };
+      os = {
+        symbols = {
+          Alpaquita = " ";
+          Alpine = " ";
+          AlmaLinux = " ";
+          Amazon = " ";
+          Android = " ";
+          Arch = " ";
+          Artix = " ";
+          CachyOS = " ";
+          CentOS = " ";
+          Debian = " ";
+          DragonFly = " ";
+          Emscripten = " ";
+          EndeavourOS = " ";
+          Fedora = " ";
+          FreeBSD = " ";
+          Garuda = "󰛓 ";
+          Gentoo = " ";
+          HardenedBSD = "󰞌 ";
+          Illumos = "󰈸 ";
+          Kali = " ";
+          Linux = " ";
+          Mabox = " ";
+          Macos = " ";
+          Manjaro = " ";
+          Mariner = " ";
+          MidnightBSD = " ";
+          Mint = " ";
+          NetBSD = " ";
+          NixOS = " ";
+          Nobara = " ";
+          OpenBSD = "󰈺 ";
+          openSUSE = " ";
+          OracleLinux = "󰌷 ";
+          Pop = " ";
+          Raspbian = " ";
+          Redhat = " ";
+          RedHatEnterprise = " ";
+          RockyLinux = " ";
+          Redox = "󰀘 ";
+          Solus = "󰠳 ";
+          SUSE = " ";
+          Ubuntu = " ";
+          Unknown = " ";
+          Void = " ";
+          Windows = "󰍲 ";
+        };
+      };
+      package = {
+        symbol = "󰏗 ";
+      };
+      perl = {
+        symbol = " ";
+      };
+      php = {
+        symbol = " ";
+      };
+      pijul_channel = {
+        symbol = " ";
+      };
+      python = {
+        symbol = " ";
+      };
+      rlang = {
+        symbol = "󰟔 ";
+      };
+      ruby = {
+        symbol = " ";
+      };
+      rust = {
+        symbol = "󱘗 ";
+      };
+      scala = {
+        symbol = " ";
+      };
+      swift = {
+        symbol = " ";
+      };
+      zig = {
+        symbol = " ";
+      };
+      gradle = {
+        symbol = " ";
+      };
+    };
+    # settings = {
+    #   format = ''
+    #     [┌](bold white) $time
+    #     [│](bold white)$all'';
+    #   command_timeout = 1000;
+    #   character = {
+    #     format = "[└ ](bold white)$symbol ";
+    #     success_symbol = "[](bold yellow)";
+    #     error_symbol = "[](bold red)";
+    #   };
+    #   cmd_duration = {
+    #     min_time = 5000;
+    #     format = "took [$duration](bold yellow)";
+    #   };
+    #   git_metrics = {
+    #     disabled = false;
+    #   };
+    #   time = {
+    #     disabled = false;
+    #     use_12hr = true;
+    #     format = "[$time](bold yellow)";
+    #   };
+    #   aws = {
+    #     symbol = "  ";
+    #   };
+    #   conda = {
+    #     symbol = " ";
+    #   };
+    #   dart = {
+    #     symbol = " ";
+    #   };
+    #   directory = {
+    #     read_only = " ";
+    #     style = "bold blue";
+    #     substitutions = {
+    #       "/Library/Mobile Documents/com~apple~CloudDocs" = "/iCloud";
+    #     };
+    #   };
+    #   docker_context = {
+    #     disabled = true;
+    #     symbol = " ";
+    #   };
+    #   elixir = {
+    #     symbol = " ";
+    #   };
+    #   elm = {
+    #     symbol = " ";
+    #   };
+    #   git_branch = {
+    #     symbol = " ";
+    #   };
+    #   golang = {
+    #     symbol = " ";
+    #   };
+    #   hg_branch = {
+    #     symbol = " ";
+    #   };
+    #   java = {
+    #     symbol = " ";
+    #   };
+    #   julia = {
+    #     symbol = " ";
+    #   };
+    #   memory_usage = {
+    #     symbol = " ";
+    #   };
+    #   nim = {
+    #     symbol = " ";
+    #   };
+    #   nix_shell = {
+    #     symbol = " ";
+    #   };
+    #   package = {
+    #     symbol = " ";
+    #     disabled = true;
+    #   };
+    #   perl = {
+    #     symbol = " ";
+    #   };
+    #   php = {
+    #     symbol = " ";
+    #   };
+    #   python = {
+    #     symbol = " ";
+    #   };
+    #   ruby = {
+    #     symbol = " ";
+    #   };
+    #   rust = {
+    #     symbol = "󱘗 ";
+    #   };
+    #   scala = {
+    #     symbol = " ";
+    #   };
+    #   shlvl = {
+    #     symbol = " ";
+    #   };
+    #   swift = {
+    #     symbol = "󰛥 ";
+    #   };
+    # };
+  };
 
   # programs.mise = {
   #   enable = false;
   # };
 
-  # programs.ghostty = {
-  #   enable = true;
-  #   package = null;
-  #   installBatSyntax = false;
-  #   settings = {
-  #     shell-integration-features = "no-cursor";
-  #     font-family = "UbuntuMono Nerd Font Mono";
-  #     font-thicken = false;
-  #
-  #     cursor-style-blink = false;
-  #   };
-  # };
+  programs.ghostty = {
+    enable = true;
+    package = null;
+    installBatSyntax = false;
+    settings = {
+      font-family = "UbuntuMono Nerd Font Mono";
+      font-size = 14;
+      font-thicken = false;
+
+      cursor-style = "block";
+      cursor-style-blink = true;
+      shell-integration-features = "no-cursor";
+    };
+  };
 
   programs.lazygit = {
     enable = true;

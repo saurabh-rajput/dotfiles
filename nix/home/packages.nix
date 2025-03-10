@@ -5,6 +5,7 @@
       gawk
       gh
       git
+      delta
       jq
       just
       nix-direnv
@@ -12,6 +13,7 @@
       tree-sitter
       vim
       zsh
+      starship
 
       # System Tools
       unzip
