@@ -17,7 +17,7 @@
     # ".bin".recursive = true;
     ".config".source = ../../config;
     ".config".recursive = true;
-    # ".gitignore_global".source = ../../gitignore_global;
+    ".gitignore_global".source = ../../gitignore_global;
     # ".vsnip/elixir.json".source = ../../vsnip/elixir.json;
     ".xterm-256color.terminfo".source = ../../xterm-256color.terminfo;
   };
@@ -34,6 +34,11 @@
     baseIndex = 1;
     terminal = "xterm-ghostty";
     shell = "${pkgs.zsh}/bin/zsh";
+    plugins = with pkgs.tmuxPlugins; [
+      sensible
+      tmux-which-key
+      yank
+    ];
     # extraConfig = ''
     #   ## Tmux configuration
     #
