@@ -199,7 +199,7 @@
     };
 
     shellAliases = {
-      dev = "tmux new -A main";
+      dev = "tmux new -A -s main";
     };
 
     initExtra = ''
