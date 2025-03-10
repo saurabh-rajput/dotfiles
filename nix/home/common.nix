@@ -13,8 +13,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # ".bin".source = ../../bin;
-    # ".bin".recursive = true;
+    ".bin".source = ../../bin;
+    ".bin".recursive = true;
     ".config".source = ../../config;
     ".config".recursive = true;
     ".gitignore_global".source = ../../gitignore_global;
@@ -27,140 +27,89 @@
   programs.tmux = {
     enable = true;
     sensibleOnTop = false;
-    escapeTime = 0;
+    escapeTime = 10;
     keyMode = "vi";
-    mouse = true;
     prefix = "C-a";
     baseIndex = 1;
     terminal = "xterm-ghostty";
     shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
-      sensible
+      # sensible
       tmux-which-key
       yank
     ];
-    # extraConfig = ''
-    #   ## Tmux configuration
-    #
-    #   # List of plugins
-    #   set -g @plugin 'tmux-plugins/tpm'
-    #   # A set of tmux options that should be acceptable to everyone
-    #   set -g @plugin 'tmux-plugins/tmux-sensible' # https://github.com/tmux-plugins/tmux-sensible
-    #
-    #   # Persists tmux environment across system restarts
-    #   # set -g @plugin 'tmux-plugins/tmux-resurrect' # https://github.com/tmux-plugins/tmux-resurrect
-    #   # which process to restore
-    #   # set -g @resurrect-processes 'mosh-client'
-    #   # pane ka content bhi restore karna hai 
-    #   # set -g @resurrect-capture-pane-contents 'on'
-    #
-    #   # tmux-continuum
-    #   # Continuous saving of tmux environment. 
-    #   # Automatic restore when tmux is started.
-    #   # set -g @plugin 'tmux-plugins/tmux-continuum' # https://github.com/tmux-plugins/tmux-continuum
-    #   # set -g @continuum-save-interval '60'
-    #   # set -g @continuum-restore 'on'
-    #   # set -g status-right 'Continuum status: #{continuum_status}'
-    #
-    #   # tmux-yank
-    #   # Copy to system clipboard in tmux supports
-    #   # linux, macos and windows syssystem for linux
-    #   set -g @plugin 'tmux-plugins/tmux-yank'
-    #
-    #
-    #
-    #   # Start index of window/pane with 1, because we're humans, not computers
-    #   set -g base-index 1
-    #   setw -g pane-base-index 1
-    #
-    #   # Enable mouse support
-    #   set-option -g history-limit 25000
-    #   set -g mouse on
-    #
-    #   # for neovim
-    #   set -sg escape-time 10
-    #   set-option -g focus-events on
-    #
-    #
-    #   ## ======================================
-    #   ## KEYBOARD BINDINGS
-    #   ## ======================================
-    #
-    #   # Basic configuration
-    #   # Change prefix key to C-a, easier to type, same to "screen"
-    #   unbind C-b
-    #   set -g prefix C-a
-    #   bind-key C-a last-window
-    #
-    #   # set window split
-    #   bind-key | split-window -h
-    #   bind-key _ split-window
-    #
-    #   # clear the terminal history
-    #   # bind -n C-k clear-history
-    #
-    #   # Rename session and window
-    #   bind r command-prompt -I "#{window_name}" "rename-window '%%'"
-    #   bind R command-prompt -I "#{session_name}" "rename-session '%%'"
-    #
-    #
-    #   # easy reload config
-    #   bind-key C-r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded."
-    #
-    #   # hjkl pane traversal
-    #   bind h select-pane -L
-    #   bind j select-pane -D
-    #   bind k select-pane -U
-    #   bind l select-pane -R
-    #
-    #   # set to main-horizontal, 66% height for main pane
-    #   bind m run-shell "~/.tmux/scripts/resize-adaptable.sh -l main-horizontal -p 66"
-    #   # Same thing for verical layouts
-    #   bind M run-shell "~/.tmux/scripts/resize-adaptable.sh -l main-vertical -p 50"
-    #
-    #   ## ======================================
-    #   ## END KEYBOARD BINDINGS
-    #   ## ======================================
-    #
-    #
-    #   # set -g default-command "reattach-to-user-namespace -l $SHELL"
-    #
-    #   ## ======================================
-    #   ## HACK
-    #   ## Ref: https://github.com/tony/tmux-config/blob/master/.tmux.conf
-    #   ## ======================================
-    #
-    #   # Vi copypaste mode
-    #   set-window-option -g mode-keys vi
-    #   if-shell "test '\( #{$TMUX_VERSION_MAJOR} -eq 2 -a #{$TMUX_VERSION_MINOR} -ge 4 \)'" 'bind-key -Tcopy-mode-vi v send -X begin-selection; bind-key -Tcopy-mode-vi y send -X copy-selection-and-cancel'
-    #   if-shell '\( #{$TMUX_VERSION_MAJOR} -eq 2 -a #{$TMUX_VERSION_MINOR} -lt 4\) -o #{$TMUX_VERSION_MAJOR} -le 1' 'bind-key -t vi-copy v begin-selection; bind-key -t vi-copy y copy-selection'
-    #
-    #   # rm mouse mode fail
-    #   if-shell '\( #{$TMUX_VERSION_MAJOR} -eq 2 -a #{$TMUX_VERSION_MINOR} -ge 1\)' 'set -g mouse off'
-    #   if-shell '\( #{$TMUX_VERSION_MAJOR} -eq 2 -a #{$TMUX_VERSION_MINOR} -lt 1\) -o #{$TMUX_VERSION_MAJOR} -le 1' 'set -g mode-mouse off'
-    #
-    #
-    #   # fix pane_current_path on new window and splits
-    #   if-shell "test '#{$TMUX_VERSION_MAJOR} -gt 1 -o \( #{$TMUX_VERSION_MAJOR} -eq 1 -a #{$TMUX_VERSION_MINOR} -ge 8 \)'" 'unbind c; bind c new-window -c "#{pane_current_path}"'
-    #   if-shell "test '#{$TMUX_VERSION_MAJOR} -gt 1 -o \( #{$TMUX_VERSION_MAJOR} -eq 1 -a #{$TMUX_VERSION_MINOR} -ge 8 \)'" "unbind '\"'; bind '\"' split-window -v -c '#{pane_current_path}'"
-    #   if-shell "test '#{$TMUX_VERSION_MAJOR} -gt 1 -o \( #{$TMUX_VERSION_MAJOR} -eq 1 -a #{$TMUX_VERSION_MINOR} -ge 8 \)'" 'unbind v; bind v split-window -h -c "#{pane_current_path}"'
-    #   if-shell "test '#{$TMUX_VERSION_MAJOR} -gt 1 -o \( #{$TMUX_VERSION_MAJOR} -eq 1 -a #{$TMUX_VERSION_MINOR} -ge 8 \)'" 'unbind "%"; bind % split-window -h -c "#{pane_current_path}"'
-    #
-    #   # Try screen256-color (https://github.com/tmux/tmux/issues/622):
-    #   set -g default-terminal "screen-256color"
-    #   if-shell "test '\( #{$TMUX_VERSION_MAJOR} -eq 2 -a #{$TMUX_VERSION_MINOR} -ge 6 \)'" 'set -g default-terminal "screen-256color"'
-    #   if-shell "test '\( #{$TMUX_VERSION_MAJOR} -eq 2 -a #{$TMUX_VERSION_MINOR} -ge 6 \)'" 'set -ga terminal-overrides ",screen-256color:Tc"'
-    #   if-shell '\( #{$TMUX_VERSION_MAJOR} -eq 2 -a #{$TMUX_VERSION_MINOR} -lt 6\) -o #{$TMUX_VERSION_MAJOR} -le 1' 'set -g default-terminal "screen-256color"'
-    #   ## ======================================
-    #   ## END HACK
-    #   ## ======================================
-    #
-    #   # Automatic tpm installation 
-    #   if "test ! -d ~/.tmux/plugins/tpm" \
-    #      "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
-    #   # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-    #   run '~/.tmux/plugins/tpm/tpm'
-    # '';
+    # Enable mouse support
+    mouse = true;
+    # Maximum number of lines held in window history
+    historyLimit = 25000;
+    extraConfig = ''
+    
+    
+      set -a terminal-features '*:usstyle'
+      set -as terminal-features ',xterm-ghostty:clipboard'
+      set -g allow-passthrough all
+      set -s set-clipboard on
+      set -g set-titles on
+      set -g set-titles-string "#S (#W)"
+      set-option -g focus-events on
+
+      ## ======================================
+      ## KEYBOARD BINDINGS
+      ## ======================================
+      bind-key C-a last-window
+
+      # set window split
+      bind-key | split-window -h
+      bind-key \\ split-window -h -c '#{pane_current_path}'
+      bind-key _ split-window
+      bind-key - split-window -v -c '#{pane_current_path}'
+
+      #Smart pane switching with awareness of Vim splits.
+      # See: https://github.com/christoomey/vim-tmux-navigator
+      
+      is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+
+      bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
+      bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
+      bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
+      bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
+      bind-key -n C-'\' if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+
+      bind-key -T copy-mode-vi C-h select-pane -L
+      bind-key -T copy-mode-vi C-j select-pane -D
+      bind-key -T copy-mode-vi C-k select-pane -U
+      bind-key -T copy-mode-vi C-l select-pane -R
+      bind-key -T copy-mode-vi C-'\' select-pane -l
+
+      #  Reload Configuration 
+      bind-key C-r source-file ~/.config/tmux/tmux.conf \; display "Reloaded ~/.config/tmux/tmux.conf"
+
+      bind C-m display-popup -E -w "90%" -h "90%" -e XDG_CONFIG_HOME="$HOME/.config" "lazygit"
+    
+    
+      # clear the terminal history
+      # bind -n C-k clear-history
+    
+      # Rename session and window
+      bind r command-prompt -I "#{window_name}" "rename-window '%%'"
+      bind R command-prompt -I "#{session_name}" "rename-session '%%'"
+    
+    
+      # # hjkl pane traversal
+      # bind h select-pane -L
+      # bind j select-pane -D
+      # bind k select-pane -U
+      # bind l select-pane -R
+    
+      # # set to main-horizontal, 66% height for main pane
+      # bind m run-shell "~/.tmux/scripts/resize-adaptable.sh -l main-horizontal -p 66"
+      # # Same thing for verical layouts
+      # bind M run-shell "~/.tmux/scripts/resize-adaptable.sh -l main-vertical -p 50"
+    
+      ## ======================================
+      ## END KEYBOARD BINDINGS
+      ## ======================================
+    '';
   };
 
   # programs.ssh = {
