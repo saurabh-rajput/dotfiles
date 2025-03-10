@@ -149,9 +149,9 @@
       # ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
     };
 
-    shellAliases = {
-      dev = "tmux new -A main";
-    };
+    # shellAliases = {
+    #   dev = "tmux new -A main";
+    # };
 
     initExtra = ''
       export EDITOR=nvim
@@ -165,8 +165,6 @@
       }
 
       # aliases that use env vars or spaces
-      alias icloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
-      alias home="cd $HOME"
       export PATH="$HOME/.bin:$PATH"
       # export PATH="$HOME/.local/bin:$PATH"
     '';

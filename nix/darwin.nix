@@ -47,9 +47,9 @@
   system.defaults.finder.AppleShowAllExtensions = true;
   # Default Finder folder view is the columns view
   system.defaults.finder.FXPreferredViewStyle = "clmv";
-  # system.defaults.NSGlobalDomain.KeyRepeat = 2;
-  # system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
-  # system.defaults.dock.autohide = true;
+  system.defaults.NSGlobalDomain.KeyRepeat = 2;
+  system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
+  system.defaults.dock.autohide = true;
   # system.defaults.dock.mru-spaces = false;
   # system.defaults.dock.show-recents = false;
   # system.defaults.dock.tilesize = 39;

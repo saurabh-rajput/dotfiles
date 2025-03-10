@@ -4,6 +4,8 @@ in {
   homebrew.casks =
     [
       # "zoom"
+      "nordvpn"
+      "kindle"
     ]
     ++ commonCasks;
   homebrew.brews = import ./brews.nix;
