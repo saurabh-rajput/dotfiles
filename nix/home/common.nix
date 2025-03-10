@@ -85,8 +85,20 @@
       bind-key C-r source-file ~/.config/tmux/tmux.conf \; display "Reloaded ~/.config/tmux/tmux.conf"
 
       bind C-m display-popup -E -w "90%" -h "90%" -e XDG_CONFIG_HOME="$HOME/.config" "lazygit"
-    
-    
+      bind C-h display-popup -E -w "90%" -h "90%"  "fzf-prs"
+      bind C-i display-popup -E -w "90%" -h "90%"  "fzf-issues"
+
+      unbind-key C-d
+
+      # Copy helper
+      bind-key -T copy-mode-vi 'v' send -X begin-selection
+      bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+
+      # bind-key -T vi-copy v begin-selection
+      # bind-key -T vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+      
+      # unbind -T vi-copy Enter
+
       # clear the terminal history
       # bind -n C-k clear-history
     
