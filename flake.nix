@@ -102,7 +102,7 @@
             arch = "aarch64-darwin";
         };
         "ubuntu" = mkHm {
-          extraModules = [ ./nix/home/personal.nix ];
+          extraModules = [ ./nix/home/ubuntu.nix ];
           arch = "x86_64-linux";
         };
       };
