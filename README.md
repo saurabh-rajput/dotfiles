@@ -34,6 +34,14 @@ Available recipes:
     rebuild         # rebuild either nix-darwin or NixOS
 ```
 
+
+FIX:
+
+Incase you are not able to connect to services when are you in your ssh from mac
+```
+infocmp -x | ssh SERVERNAME -- tic -x -
+```
+
 ## References
 
 - (LazyVim for Ambitious Developers)[https://lazyvim-ambitious-devs.phillips.codes/]
