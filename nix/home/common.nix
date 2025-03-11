@@ -219,6 +219,37 @@
     '';
   };
 
+  programs.bash = {
+    enable = true;
+    # autocd = true;
+    # enableVteIntegration = true;
+    # autosuggestion.enable = true;
+    # syntaxHighlighting.enable = true;
+    sessionVariables = {
+      EDITOR = "nvim";
+      ERL_AFLAGS = "-kernel shell_history enabled";
+      KERL_BUILD_DOCS = "yes";
+      CLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/";
+      ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
+    };
+
+    shellAliases = {
+      dev = "tmux new -A -s main";
+    };
+
+    initExtra = ''
+      export EDITOR=nvim
+
+      path() {
+        echo $PATH | tr ':' '\n'
+      }
+
+      # aliases that use env vars or spaces
+      export PATH="$HOME/.bin:$PATH"
+      # export PATH="$HOME/.local/bin:$PATH"
+    '';
+  };
+
   # programs.bat.enable = true;
   # programs.bat.themes = {
   #   kanagawa = {
