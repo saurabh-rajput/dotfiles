@@ -42,7 +42,7 @@
     ]
     ++ (
       if pkgs.stdenv.isLinux
-      then [ xclip unixtools.ifconfig inotify-tools ncurses5]
+      then [ gcc xclip unixtools.ifconfig inotify-tools ncurses5]
       else [ ]  # darwin
     );
 in {
