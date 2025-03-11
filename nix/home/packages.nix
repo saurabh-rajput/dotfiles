@@ -14,6 +14,7 @@
       vim
       zsh
       starship
+      universal-ctags
 
       # System Tools
       unzip
@@ -41,8 +42,8 @@
     ]
     ++ (
       if pkgs.stdenv.isLinux
-      then [gcc coreutils xclip unixtools.ifconfig inotify-tools ncurses5 bintools]
-      else [ llvmPackages.bintools ]
+      then [ xclip unixtools.ifconfig inotify-tools ncurses5]
+      else [ ]  # darwin
     );
 in {
   inherit packages;

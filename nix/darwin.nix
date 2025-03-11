@@ -18,6 +18,7 @@
     enable = true; 
     ephemeral = true;
     maxJobs = 4;
+    # config.boot.binfmt.emulatedSystems = ["aarch64-linux"];
     # config = {
     #   virtualisation = {
     #     darwin-builder = {
