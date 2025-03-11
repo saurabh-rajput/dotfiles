@@ -9,4 +9,6 @@ in {
     ./common.nix
   ];
   home.packages = common.packages;
+
+  users.users.ubuntu.shell = pkgs.zsh;
 }
