@@ -46,6 +46,7 @@
         };
     in {
 
+      # Configuration for arm macos
       apps."aarch64-darwin".default = let
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
         init = pkgs.writeShellApplication {
@@ -69,6 +70,20 @@
         program = "${init}/bin/init";
       };
 
+      # Configuration for intel x86_64-linux
+      apps."x86_64-linux".default = let
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        init = pkgs.writeShellApplication {
+          name = "init";
+          text = ''
+            nix run home-manager/master -- switch --flake ~/.dotfiles
+          '';
+        };
+      in {
+        type = "app";
+        program = "${init}/bin/init";
+      };
+
       darwinConfigurations = {
         "macbook" = mkDarwin {
           extraDarwinModules = [./nix/darwin/personal.nix];
@@ -83,6 +98,10 @@
         "vishwas@macbook" = mkHm {
             extraModules = [ ./nix/home/personal.nix ];
             arch = "aarch64-darwin";
+        };
+        "ubuntu" = mkHm {
+          extraModules = [ ./nix/home/personal.nix ];
+          arch = "x86_64-linux";
         };
       };
     };
