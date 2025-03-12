@@ -43,10 +43,8 @@
     # Maximum number of lines held in window history
     historyLimit = 25000;
     extraConfig = ''
-    
-    
-      set -a terminal-features '*:usstyle'
-      set -as terminal-features ',xterm-ghostty:clipboard'
+      # set -a terminal-features '*:usstyle'
+      # set -as terminal-features ',xterm-ghostty:clipboard'
       set -g allow-passthrough all
       set -s set-clipboard on
       set -g set-titles on
@@ -92,6 +90,7 @@
 
       # Copy helper
       bind-key -T copy-mode-vi 'v' send -X begin-selection
+      # bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
       bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
 
       # bind-key -T vi-copy v begin-selection
@@ -235,7 +234,7 @@
 
     shellAliases = {
       dev = "tmux new -A -s main";
-      pbcopy="xclip -selection clipboard";
+      # pbcopy="xclip -selection clipboard";
     };
 
     initExtra = ''
