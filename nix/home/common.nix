@@ -235,6 +235,7 @@
 
     shellAliases = {
       dev = "tmux new -A -s main";
+      pbcopy="xclip -selection clipboard";
     };
 
     initExtra = ''
