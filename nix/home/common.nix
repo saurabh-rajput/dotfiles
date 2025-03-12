@@ -35,8 +35,8 @@
     shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
       # sensible
-      tmux-which-key
-      yank
+      # tmux-which-key
+      # yank
     ];
     # Enable mouse support
     mouse = true;
