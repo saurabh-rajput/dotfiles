@@ -40,6 +40,7 @@
       (ruby.withPackages (ps: with ps; [ neovim ]))
       (python312.withPackages (ps: with ps; [ pip pyelftools ]))
       poetry
+      tree
       coreutils
     ]
     ++ (
