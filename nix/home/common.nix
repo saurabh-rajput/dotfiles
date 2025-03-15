@@ -226,15 +226,10 @@
     # syntaxHighlighting.enable = true;
     sessionVariables = {
       EDITOR = "nvim";
-      ERL_AFLAGS = "-kernel shell_history enabled";
-      KERL_BUILD_DOCS = "yes";
-      CLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/";
-      ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
     };
 
     shellAliases = {
       dev = "tmux new -A -s main";
-      # pbcopy="xclip -selection clipboard";
     };
 
     initExtra = ''
