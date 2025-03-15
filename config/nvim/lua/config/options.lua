@@ -7,3 +7,5 @@ vim.g.snacks_animate = false
 
 -- Do not hide markup
 vim.opt.conceallevel = 0
+-- Clipboard make it to system clipboard
+vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
