@@ -39,6 +39,7 @@
       # Python Runtime
       (ruby.withPackages (ps: with ps; [ neovim ]))
       (python312.withPackages (ps: with ps; [ pip pyelftools ]))
+      poetry
     ]
     ++ (
       if pkgs.stdenv.isLinux
