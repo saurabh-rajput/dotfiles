@@ -9,3 +9,6 @@ vim.g.snacks_animate = false
 vim.opt.conceallevel = 0
 -- Clipboard make it to system clipboard
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+
+-- Force python ruff
+vim.g.lazyvim_python_ruff = "ruff"

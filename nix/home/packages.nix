@@ -42,6 +42,7 @@
       poetry
       tree
       coreutils
+      uv
     ]
     ++ (
       if pkgs.stdenv.isLinux
