@@ -44,6 +44,7 @@
       tree
       coreutils
       uv
+      plantuml
 
     ]
     ++ (
