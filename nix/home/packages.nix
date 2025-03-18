@@ -45,6 +45,7 @@
       coreutils
       uv
       plantuml
+      zulu # java
 
     ]
     ++ (
