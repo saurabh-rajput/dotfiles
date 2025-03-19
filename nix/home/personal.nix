@@ -3,8 +3,8 @@
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "vishwas";
-  home.homeDirectory = "/Users/vishwas";
+  home.username = "saurabhrajput";
+  home.homeDirectory = "/Users/saurabhrajput";
   imports = [
     ./common.nix
   ];

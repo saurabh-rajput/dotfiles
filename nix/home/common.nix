@@ -130,8 +130,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Vishwas Sharma";
-    userEmail = "vishwasinventor@gmail.com";
+    userName = "Saurabh Rajput";
+    userEmail = "saurabh414@gmail.com";
     aliases = {
       co = "checkout";
     };
