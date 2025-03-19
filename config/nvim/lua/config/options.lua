@@ -11,4 +11,4 @@ vim.opt.conceallevel = 0
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
 -- Force python ruff
-vim.g.lazyvim_python_ruff = "ruff"
+-- vim.g.lazyvim_python_ruff = "ruff"
