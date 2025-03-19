@@ -18,6 +18,7 @@
     ".config".source = ../../config;
     ".config".recursive = true;
     ".gitignore_global".source = ../../gitignore_global;
+    ".cdk.json".source = ../../cdk.json;
     # ".vsnip/elixir.json".source = ../../vsnip/elixir.json;
     ".xterm-256color.terminfo".source = ../../xterm-256color.terminfo;
   };
