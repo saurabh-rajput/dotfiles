@@ -17,7 +17,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 Run the installer
 
 ```bash
-nix run github:vishwassharma/dotfiles
+nix run github:saurabh-rajput/dotfiles
 ```
 
 ## Usage
