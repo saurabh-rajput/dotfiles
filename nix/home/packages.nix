@@ -39,7 +39,7 @@
       nodePackages.aws-cdk
       # Python Runtime
       (ruby.withPackages (ps: with ps; [ neovim ]))
-      (python312.withPackages (ps: with ps; [ pip pyelftools click ]))
+      (python312.withPackages (ps: with ps; [ pip pyelftools click pip-tools ]))
       poetry
       tree
       coreutils
