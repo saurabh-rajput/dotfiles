@@ -46,6 +46,7 @@
       uv
       plantuml
       zulu # java
+      pre-commit
 
     ]
     ++ (
