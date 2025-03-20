@@ -198,6 +198,7 @@
       ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
       # NIX_BUILD_SHELL = "$SHELL";
       NIX_BUILD_SHELL = "${pkgs.zsh}/bin/zsh";
+      DIRENV_SUBSHELL = "1";
     };
 
     shellAliases = {
@@ -230,6 +231,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       NIX_BUILD_SHELL = "$SHELL";
+      DIRENV_SUBSHELL = "1";
     };
 
     shellAliases = {

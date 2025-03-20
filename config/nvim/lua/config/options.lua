@@ -14,4 +14,4 @@ vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.opt.wrap = true
 
 -- Force python ruff
-vim.g.lazyvim_python_ruff = "ruff"
+-- vim.g.lazyvim_python_ruff = "ruff"
