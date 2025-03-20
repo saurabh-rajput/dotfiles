@@ -196,6 +196,8 @@
       KERL_BUILD_DOCS = "yes";
       CLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/";
       ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
+      # NIX_BUILD_SHELL = "$SHELL";
+      NIX_BUILD_SHELL = "${pkgs.zsh}/bin/zsh";
     };
 
     shellAliases = {
@@ -227,6 +229,7 @@
     # syntaxHighlighting.enable = true;
     sessionVariables = {
       EDITOR = "nvim";
+      NIX_BUILD_SHELL = "$SHELL";
     };
 
     shellAliases = {

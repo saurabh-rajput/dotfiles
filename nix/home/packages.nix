@@ -47,6 +47,9 @@
       plantuml
       zulu # java
       pre-commit
+      # https://github.com/NixOS/nix/issues/730
+      # FIX: bash: shopt: progcomp: invalid shell option name
+      bashInteractive
 
     ]
     ++ (
