@@ -163,6 +163,7 @@
       delta.line-numbers = true;
       delta.side-by-side = true;
       merge.conflictstyle = "zdiff3";
+      merge.tool = "meld";
       # pager = {
       #   diff = false;
       # };
