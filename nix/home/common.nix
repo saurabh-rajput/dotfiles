@@ -155,8 +155,14 @@
       core = {
         excludesFile = "~/.gitignore_global";
         editor = "nvim";
-        # pager = "cat";
+        pager = "delta";
       };
+      interactive.diffFilter = "delta --color-only";
+      delta.navigate = true;
+      delta.dark = true;
+      delta.line-numbers = true;
+      delta.side-by-side = true;
+      merge.conflictstyle = "zdiff3";
       # pager = {
       #   diff = false;
       # };
