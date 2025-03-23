@@ -62,7 +62,10 @@
       # Python Runtime
       (ruby.withPackages (ps: with ps; [ neovim ]))
       (python312.withPackages (ps: with ps; [ pip pyelftools click pip-tools ]))
+      # Poetry 
       poetry
+      poetryPlugins.poetry-plugin-export
+      # END Poetry 
       uv
       plantuml
       zulu # java
