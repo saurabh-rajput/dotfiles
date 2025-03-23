@@ -5,6 +5,7 @@ in {
     [
       # "zoom"
       "nordvpn"
+      "postman"
     ]
     ++ commonCasks;
   homebrew.brews = import ./brews.nix;

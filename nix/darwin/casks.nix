@@ -6,5 +6,4 @@
   "wireshark"
   "ghostty"
   # "chromedriver"
-  "postman"
 ]
