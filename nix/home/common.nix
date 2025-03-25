@@ -18,6 +18,7 @@
     ".config".source = ../../config;
     ".config".recursive = true;
     ".gitignore_global".source = ../../gitignore_global;
+    ".cdk.json".source = ../../cdk.json;
     # ".vsnip/elixir.json".source = ../../vsnip/elixir.json;
     ".xterm-256color.terminfo".source = ../../xterm-256color.terminfo;
   };
@@ -154,8 +155,15 @@
       core = {
         excludesFile = "~/.gitignore_global";
         editor = "nvim";
-        # pager = "cat";
+        # pager = "delta";
       };
+      # interactive.diffFilter = "delta --color-only";
+      # delta.navigate = true;
+      # delta.dark = true;
+      # delta.line-numbers = true;
+      # delta.side-by-side = true;
+      merge.conflictstyle = "zdiff3";
+      merge.tool = "meld";
       # pager = {
       #   diff = false;
       # };
@@ -195,6 +203,9 @@
       KERL_BUILD_DOCS = "yes";
       CLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/";
       ICLOUD = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
+      # NIX_BUILD_SHELL = "$SHELL";
+      NIX_BUILD_SHELL = "${pkgs.zsh}/bin/zsh";
+      DIRENV_SUBSHELL = "1";
     };
 
     shellAliases = {
@@ -226,6 +237,8 @@
     # syntaxHighlighting.enable = true;
     sessionVariables = {
       EDITOR = "nvim";
+      NIX_BUILD_SHELL = "$SHELL";
+      DIRENV_SUBSHELL = "1";
     };
 
     shellAliases = {

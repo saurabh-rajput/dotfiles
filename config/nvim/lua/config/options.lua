@@ -10,5 +10,8 @@ vim.opt.conceallevel = 0
 -- Clipboard make it to system clipboard
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
+-- Enable word wrapping
+vim.opt.wrap = true
+
 -- Force python ruff
-vim.g.lazyvim_python_ruff = "ruff"
+-- vim.g.lazyvim_python_ruff = "ruff"
