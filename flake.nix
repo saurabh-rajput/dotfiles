@@ -87,7 +87,7 @@
       };
 
       darwinConfigurations = {
-        "macbook" = mkDarwin {
+        "macpro-quant" = mkDarwin {
           extraDarwinModules = [./nix/darwin/personal.nix];
         };
       };
