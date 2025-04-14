@@ -210,6 +210,7 @@
 
     shellAliases = {
       dev = "tmux new -A -s main";
+      vim = "nvim";
     };
 
     initExtra = ''
