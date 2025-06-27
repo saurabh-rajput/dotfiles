@@ -26,10 +26,8 @@
       fzf
       # END Search and Replace
 
-      # gemini-cli
-      
-      
-      #END gemini-cli
+      (import ./gemini-cli.nix { inherit pkgs; })
+
 
       # Git tools
       gh
