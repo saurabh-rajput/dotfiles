@@ -26,7 +26,10 @@
       fzf
       # END Search and Replace
 
-
+      # gemini-cli
+      
+      
+      #END gemini-cli
 
       # Git tools
       gh
